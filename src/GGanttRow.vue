@@ -28,7 +28,7 @@
         :bar-end="barEnd"
         :bar-container="barContainer"
         :all-bars-in-row="bars"
-        :drag-step-minutes="dragStepMinutes"
+        :min-per-drag-step="minPerDragStep"
       >
         <template #bar-label="{ bar }">
           <slot name="bar-label" :bar="bar" />
@@ -55,7 +55,7 @@ export default {
     barStart: { type: String, required: true }, // property name of the bar objects that represents the start datetime
     barEnd: { type: String, required: true }, // property name of the bar objects that represents the end datetime,
     highlightOnHover: Boolean,
-    dragStepMinutes: { type: Number, default: 1 },
+    minPerDragStep: { type: Number, default: 1 },
   },
 
   inject: [

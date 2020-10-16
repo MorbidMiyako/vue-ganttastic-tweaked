@@ -334,11 +334,9 @@ export default {
               true
             );
             overlapBar[this.barEnd] = currentBar[this.barStart];
-            overlapBar[this.barStart] = overlapStartMoment.subtract(
-              minuteDiff,
-              "minutes",
-              true
-            );
+            overlapBar[this.barStart] = overlapStartMoment
+              .subtract(minuteDiff, "minutes", true)
+              .format("YYYY-MM-DD HH:mm");
             break;
           case "right":
             minuteDiff = currentEndMoment.diff(
@@ -347,11 +345,9 @@ export default {
               true
             );
             overlapBar[this.barStart] = currentBar[this.barEnd];
-            overlapBar[this.barEnd] = overlapEndMoment.add(
-              minuteDiff,
-              "minutes",
-              true
-            );
+            overlapBar[this.barEnd] = overlapEndMoment
+              .add(minuteDiff, "minutes", true)
+              .format("YYYY-MM-DD HH:mm");
             break;
           default:
             console.warn(
