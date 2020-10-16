@@ -38,6 +38,7 @@
         {{ bar[barStart] | TimeFilter }}
         -
         {{ bar[barEnd] | TimeFilter }}
+        <!-- future ed1t, add option to customize this message -->
       </div>
     </transition>
   </div>
@@ -55,6 +56,7 @@ export default {
     barEnd: { type: String }, // property name of the bar objects that represents the end datetime,
     barContainer: [Object, DOMRect],
     allBarsInRow: { type: Array },
+    minPerDragStep: { type: Number },
   },
 
   inject: [
@@ -392,7 +394,7 @@ export default {
         : null;
       return { overlapBar, overlapType };
     },
-
+    // future ed1t fix 8ug pushing bar
     // this is used in GGanttChart, when a bar from a bundle is pushed
     // so that bars from its bundle also get pushed
     moveBarByMinutesAndPush(minuteCount, direction) {
@@ -443,8 +445,13 @@ export default {
     },
 
     mapPositionToTime(xPos) {
+      let partOfHour = 60 / this.minPerDragStep;
+      console.log(this.dragStepMinutes);
       let hourDiffFromStart =
-        (xPos / this.barContainer.width) * this.getHourCount();
+        Math.round(
+          (xPos / this.barContainer.width) * this.getHourCount() * partOfHour
+        ) / partOfHour;
+
       return this.chartStartMoment.clone().add(hourDiffFromStart, "hours");
     },
   },
