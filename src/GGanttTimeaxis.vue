@@ -54,6 +54,7 @@ export default {
     timemarkerOffset: { type: Number, default: 0 },
     locale: String,
     themeColors: Object,
+    hoursInDay: Number,
   },
 
   data() {
@@ -87,7 +88,9 @@ export default {
             ? end.hour()
             : 24 - start.hour();
         let widthPercentage = (hourCountOfDay / this.hourCount) * 100;
-        let endHour = start.day() === end.day() ? end.hour() - 1 : 23; // -1 because the last hour is not included e.g if chartEnd=04:00 the last interval we display is between 03 and 04
+        let endHour =
+          // preferably one would also allow for distinction between years, but thats quite the edgecase and I'm lazy/feels ugly && bloated
+          start.dayOfYear() === end.dayOfYear() ? end.hour() - 1 : 23; // -1 because the last hour is not included e.g if chartEnd=04:00 the last interval we display is between 03 and 04
         this.axisDays.push(
           this.getAxisDayObject(start, widthPercentage, endHour)
         );
@@ -103,7 +106,11 @@ export default {
         ganttHours: [],
       };
       let startHour = datetimeMoment.hour();
-      for (let i = 0; i <= endHour - startHour; i++) {
+      for (
+        let i = 0;
+        i <= Math.floor((endHour - startHour) / this.hoursInDay);
+        i++
+      ) {
         let hour = {
           text: datetimeMoment.format("HH"),
           fullDatetime: datetimeMoment.format("DD.MM.YYYY HH:mm"),

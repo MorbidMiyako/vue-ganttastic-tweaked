@@ -1,18 +1,18 @@
 {
-  "name": "vue-ganttastic",
+  "name": "vue-ganttastic-tweaked",
   "version": "0.9.23",
   "description": "A simple and customizable Gantt chart component for Vue.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/InfectoOne/vue-ganttastic"
+    "url": "https://github.com/MorbidMiyako/vue-ganttastic-tweaked"
   },
-  "main": "./dist/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "bili --name index --plugin vue --vue.css false"
   },
   "files": [
-    "dist/*"
+    "src/*"
   ],
   "keywords": [
     "gantt",
@@ -24,6 +24,9 @@
     "ganttastic"
   ],
   "author": "Marko Zunic",
+  "contributors": [
+    "Bernd de Kruik <bernd-de-kruik@hotmail.com> (https://bernd-de-kruik.com/)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "bili": "^4.10.0",
