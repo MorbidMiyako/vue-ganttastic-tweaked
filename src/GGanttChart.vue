@@ -11,7 +11,6 @@
       :timemarker-offset="timemarkerOffset"
       :theme-colors="themeColors"
       :locale="locale"
-      :hours-in-day="hoursInDay"
     />
 
     <g-gantt-grid
@@ -67,7 +66,6 @@ export default {
     width: { type: String, default: "100%" }, // the total width of the entire ganttastic component in %
     pushOnOverlap: { type: Boolean },
     snapBackOnOverlap: { type: Boolean },
-    hoursInDay: { type: Number, default: 1 },
   },
 
   data() {
