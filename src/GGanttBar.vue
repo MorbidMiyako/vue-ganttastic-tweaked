@@ -442,7 +442,6 @@ export default {
 
     mapPositionToTime(xPos) {
       let partOfHour = 60 / this.minPerDragStep;
-      console.log(this.dragStepMinutes);
       let hourDiffFromStart =
         Math.round(
           (xPos / this.barContainer.width) * this.getHourCount() * partOfHour

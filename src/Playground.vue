@@ -169,7 +169,6 @@ export default {
 
   methods: {
     onDragend(e){
-      console.log(e)
     }
   }
 }
