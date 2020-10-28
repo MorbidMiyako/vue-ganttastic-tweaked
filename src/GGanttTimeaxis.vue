@@ -116,7 +116,7 @@ export default {
           fullDatetime: datetimeMoment.format("DD.MM.YYYY HH:mm"),
         };
         axisDayObject.ganttHours.push(hour);
-        datetimeMoment.add(1, "hour");
+        datetimeMoment.add(2, "hour");
       }
       return axisDayObject;
     },
