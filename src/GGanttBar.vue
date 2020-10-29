@@ -17,8 +17,14 @@
         </slot>
       </div>
       <template v-if="barConfig.handles">
-        <div class="g-gantt-bar-handle-left" :style="barHandleStyling" />
-        <div class="g-gantt-bar-handle-right" :style="barHandleStyling" />
+        <div
+          class="g-gantt-bar-handle-left"
+          :style="bar.ganttBarConfig.handleStyling"
+        />
+        <div
+          class="g-gantt-bar-handle-right"
+          :style="bar.ganttBarConfig.handleStyling"
+        />
       </template>
     </div>
 
@@ -57,7 +63,6 @@ export default {
     barContainer: [Object, DOMRect],
     allBarsInRow: { type: Array },
     minPerDragStep: { type: Number },
-    barHandleStyling: { type: Object },
   },
 
   inject: [
