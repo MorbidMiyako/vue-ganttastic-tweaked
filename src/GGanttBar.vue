@@ -494,20 +494,20 @@ export default {
 .g-gantt-bar > .g-gantt-bar-handle-left,
 .g-gantt-bar > .g-gantt-bar-handle-right {
   position: absolute;
-  width: 10px;
-  height: 100%;
-  background: white;
-  opacity: 0.7;
+  width: 3px;
+  height: 90%;
+  background: black;
+  /* opacity: 0.7; */
   border-radius: 40px;
   cursor: w-resize;
 }
 
 .g-gantt-bar-handle-left {
-  left: 0;
+  left: 3px;
 }
 
 .g-gantt-bar-handle-right {
-  right: 0;
+  right: 3px;
 }
 
 .g-gantt-bar-label img {

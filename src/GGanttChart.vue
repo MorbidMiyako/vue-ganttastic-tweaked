@@ -85,7 +85,7 @@ export default {
     },
 
     themeColors() {
-      return GanttasticThemeColors[this.theme] || GanttasticThemeColors.default;
+      return GanttasticThemeColors[this.theme] || this.theme;
     },
   },
 
