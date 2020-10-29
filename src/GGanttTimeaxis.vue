@@ -1,5 +1,6 @@
 <template>
   <div id="g-timeaxis">
+    <!-- ed1t make this optional, along with row names -->
     <div
       class="g-timeaxis-empty-space"
       :style="{ width: rowLabelWidth, background: themeColors.secondary }"
@@ -19,7 +20,14 @@
           color: themeColors.text,
         }"
       >
-        <div>{{ dayFormatted(day) }}</div>
+        <div class="g-timeaxis-day-div">
+          <p class="g-timeaxis-day-text">
+            {{ dayFormatted(day).format("dddd") }}
+          </p>
+          <p class="g-timeaxis-monthday-text">
+            {{ dayFormatted(day).format("MMMM Do") }}
+          </p>
+        </div>
         <div
           :style="{ background: themeColors.ternary, color: themeColors.text }"
         >
@@ -143,7 +151,8 @@ export default {
     dayFormatted(day) {
       // do not display day text if the day is smaller than 12%
       return day.widthPercentage >= 12
-        ? moment(day.value).locale(this.locale).format(this.dayFormat)
+        ? // ? moment(day.value).locale(this.locale).format(this.dayFormat)
+          moment(day.value).locale(this.locale)
         : "";
     },
   },
@@ -217,6 +226,24 @@ export default {
   background: #f5f5f5;
   padding-top: 2px;
   color: #212121;
+}
+
+.g-timeaxis-day-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.g-timeaxis-day-text {
+  font-family: "Montsserrat";
+  font-size: 16px;
+  margin-block-end: 0;
+}
+
+.g-timeaxis-monthday-text {
+  font-family: "Montsserrat";
+  font-size: 12px;
+  font-weight: lighter;
+  margin-block-start: 0;
 }
 
 .g-timeaxis-hour {
