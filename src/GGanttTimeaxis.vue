@@ -182,8 +182,9 @@ export default {
   top: 0;
   width: 100%;
   height: 8%;
-  min-height: 75px;
-  background: white;
+  /* causes ugly white bar */
+  /* min-height: 75px; */
+  background: "#EEF1F4";
   z-index: 4;
   box-shadow: 0px 1px 3px 2px rgba(50, 50, 50, 0.5);
 }
@@ -191,7 +192,7 @@ export default {
 #g-timeaxis > .g-timeaxis-empty-space {
   width: 20%; /* this has to be as wide as .ganttRowTitle in VGanttastic.css */
   height: 100%;
-  background: #f5f5f5;
+  background: #eef1f4;
 }
 
 #g-timeaxis > .g-timeaxis-days {
