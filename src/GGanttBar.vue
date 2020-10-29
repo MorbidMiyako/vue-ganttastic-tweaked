@@ -496,7 +496,7 @@ export default {
   position: absolute;
   width: 3px;
   height: 90%;
-  background: black;
+  background: #433880;
   /* opacity: 0.7; */
   border-radius: 40px;
   cursor: w-resize;
