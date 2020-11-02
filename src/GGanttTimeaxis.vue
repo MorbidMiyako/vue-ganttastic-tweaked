@@ -21,11 +21,15 @@
         }"
       >
         <div class="g-timeaxis-day-div">
-          <p class="g-timeaxis-day-text">
+          <p v-if="toggleDateVisible" class="g-timeaxis-day-text">
             {{ dayFormatted(day).format("dddd") }}
           </p>
-          <p class="g-timeaxis-monthday-text">
+          <p v-if="toggleDateVisible" class="g-timeaxis-monthday-text">
             {{ dayFormatted(day).format("MMMM Do") }}
+          </p>
+          <!-- if false we want to show different styling -->
+          <p v-if="!toggleDateVisible" class="g-timeaxis-day-text-only">
+            {{ dayFormatted(day).format("dddd") }}
           </p>
         </div>
         <div
@@ -55,6 +59,10 @@ import moment from "moment";
 export default {
   name: "GGanttTimeaxis",
 
+  created() {
+    console.log(this.toggleDateVisible);
+  },
+
   props: {
     chartStart: String,
     chartEnd: String,
@@ -63,6 +71,7 @@ export default {
     locale: String,
     themeColors: Object,
     hoursInDay: Number,
+    toggleDateVisible: Boolean,
   },
 
   data() {
@@ -238,6 +247,11 @@ export default {
   font-family: "Montsserrat";
   font-size: 16px;
   margin-block-end: 0;
+}
+
+.g-timeaxis-day-text-only {
+  font-family: "Montsserrat";
+  font-size: 16px;
 }
 
 .g-timeaxis-monthday-text {

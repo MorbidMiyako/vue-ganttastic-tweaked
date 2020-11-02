@@ -12,6 +12,7 @@
       :theme-colors="themeColors"
       :locale="locale"
       :hours-in-day="hoursInDay"
+      :toggle-date-visible="toggleDateVisible"
     />
 
     <g-gantt-grid
@@ -68,6 +69,7 @@ export default {
     pushOnOverlap: { type: Boolean },
     snapBackOnOverlap: { type: Boolean },
     hoursInDay: { type: Number, default: 1 },
+    toggleDateVisible: { type: Boolean, default: true },
   },
 
   data() {
