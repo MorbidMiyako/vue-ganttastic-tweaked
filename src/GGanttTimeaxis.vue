@@ -244,18 +244,15 @@ export default {
 }
 
 .g-timeaxis-day-text {
-  font-family: "Montsserrat";
   font-size: 16px;
   margin-block-end: 0;
 }
 
 .g-timeaxis-day-text-only {
-  font-family: "Montsserrat";
   font-size: 16px;
 }
 
 .g-timeaxis-monthday-text {
-  font-family: "Montsserrat";
   font-size: 12px;
   font-weight: lighter;
   margin-block-start: 0;

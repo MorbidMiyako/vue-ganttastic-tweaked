@@ -396,7 +396,7 @@ export default {
 }
 
 #g-gantt-chart >>> * {
-  font-family: Roboto, Verdana;
+  font-family: Montserrat, sans-serif;
 }
 
 #g-gantt-rows-container {

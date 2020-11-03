@@ -34,16 +34,13 @@
         class="g-gantt-tooltip"
         :style="tooltipStyle"
       >
-        <div
-          class="color-indicator"
-          :style="{
-            background:
-              this.barStyle.background || this.barStyle.backgroundColor,
-          }"
-        />
-        {{ bar[barStart] | TimeFilter }}
-        -
-        {{ bar[barEnd] | TimeFilter }}
+        <p class="g-gantt-tooltip-name">{{ bar.label }}</p>
+        <p class="g-gantt-tooltip-time">
+          {{ bar[barStart] | TimeFilter }}
+          -
+          {{ bar[barEnd] | TimeFilter }}
+        </p>
+        <p class="g-gantt-tooltip-shift">{{ bar.shift }}</p>
         <!-- future ed1t, add option to customize this message -->
       </div>
     </transition>
@@ -522,15 +519,38 @@ export default {
 
 .g-gantt-tooltip {
   position: absolute;
-  background: black;
+  background: #2e2e2e;
   color: white;
   z-index: 3;
-  font-size: 0.7em;
   padding: 3px;
+  text-align: left;
   border-radius: 3px;
   transition: opacity 0.2s;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
+}
+
+.g-gantt-tooltip-name {
+  font-weight: bold;
+  font-size: 17px;
+  margin-block-start: 0.3em;
+  margin-block-end: 0px;
+}
+
+.g-gantt-tooltip-time {
+  font-weight: 300;
+  font-size: 12px;
+  color: #707070;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+.g-gantt-tooltip-shift {
+  font-weight: 300;
+  font-size: 10px;
+  margin-block-start: 0px;
+  margin-block-end: 0.3em;
 }
 
 .g-gantt-tooltip:before {
@@ -541,7 +561,7 @@ export default {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-bottom-color: black;
+  border-bottom-color: #2e2e2e;
   border-top: 0;
   margin-left: -5px;
   margin-top: -5px;
