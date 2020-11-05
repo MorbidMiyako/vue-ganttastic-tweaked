@@ -98,7 +98,11 @@ export default {
       this.axisDays = [];
       let start = moment(this.chartStart);
       let end = moment(this.chartEnd);
-      this.hourCount = Math.floor(end.diff(start, "hour", true));
+      this.hourCount = Math.floor(
+        end.diff(start, "hour", true) / this.hoursInDay
+      );
+      console.log("hourCount");
+      console.log(this.hourCount);
       while (start.isBefore(end)) {
         let hourCountOfDay =
           start.format("DD.MM.YYYY") == end.format("DD.MM.YYYY")
@@ -133,7 +137,7 @@ export default {
           fullDatetime: datetimeMoment.format("DD.MM.YYYY HH:mm"),
         };
         axisDayObject.ganttHours.push(hour);
-        datetimeMoment.add(2, "hour");
+        datetimeMoment.add(this.hoursInDay, "hour");
       }
       return axisDayObject;
     },

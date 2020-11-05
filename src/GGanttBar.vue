@@ -482,7 +482,7 @@ export default {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: 0 14px 0 14px; /* 14px is the width of the handle */
+  padding: 0 8px; /* 14px is the width of the handle */ /* not anymore, settable now */
   display: flex;
   justify-content: center;
   align-items: center;
